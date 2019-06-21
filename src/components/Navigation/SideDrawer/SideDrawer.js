@@ -12,9 +12,9 @@ const sideDrawer = props => {
     <Aux>
       <Backdrop show={props.open} clicked={props.closed}/>
       <div className={attachedClasses.join(' ')}>
-        <h3>Author</h3>
-        <h3>Authorx</h3>
-        <h3>Authorxx</h3>
+        <h3 className={classes.Author}>Albert Einstein</h3>
+        <h3 className={classes.Author}>Johann Gauss</h3>
+        <h3 className={classes.Author}>Ada Lovelace</h3>
       </div>
     </Aux>  
   )

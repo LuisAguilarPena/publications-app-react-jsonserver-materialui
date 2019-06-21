@@ -8,26 +8,6 @@ class Body extends Component{
 
   state = {
     "articles": null,
-    "authors": [
-      {
-        "id": "1",
-        "firstName": "Albert",
-        "lastName": "Einstein",
-        "email": "albert@gmail.com"
-      },
-      {
-        "id": "2",
-        "firstName": "Johann",
-        "lastName": "Gauss",
-        "email": "gauss@gmail.com"
-      },
-      {
-        "id": "3",
-        "firstName": "Ada",
-        "lastName": "Lovelace",
-        "email": "ada@gmail.com"
-      }
-    ],
     "error": false
   }
 

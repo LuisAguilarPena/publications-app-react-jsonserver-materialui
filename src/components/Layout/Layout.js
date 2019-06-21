@@ -6,7 +6,8 @@ import classes from './Layout.module.css';
 
 class Layout extends Component {
   state = {
-    showSideDrawer: false
+    showSideDrawer: false,
+    
   }
   
   sideDrawerClosedHandler = () => {
