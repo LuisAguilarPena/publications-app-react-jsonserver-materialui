@@ -1,9 +1,10 @@
 import React from 'react';
+import DrawerToggle from '../SideDrawer/DrawerToggle/DrawerToggle';
 import classes from './Toolbar.module.css';
 
 const toolbar = props => (
   <header className={classes.Toolbar}>
-    <div>MENU</div>
+   <DrawerToggle clicked={props.drawerToggleClicked}/>
     <div>Publications App</div>
     <div>Sort</div>
   </header>
