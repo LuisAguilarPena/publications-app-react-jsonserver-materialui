@@ -35,6 +35,7 @@ class SideDrawer extends Component {
           <h3 
             className={classes.Author}
             key={author.id}
+            onClick={() => this.props.byAuthor(`${author.firstName} ${author.lastName}`)}
           >
             {`${author.firstName} ${author.lastName}`}
           </h3>

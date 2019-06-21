@@ -32,6 +32,15 @@ class Layout extends Component {
     });
   } 
 
+  clickHandler = (author) => {
+    axios.get(`http://localhost:3001/articles?author=${author}`)
+      .then(response => {
+        console.log(response.data);
+        this.setState({articles: response.data});
+      })
+      .catch(error => {this.setState({error: true})});
+  }
+
   render () {
 
     let card = this.state.error ? <Aux><p>Game Over</p></Aux> : <Aux><p>Loading</p></Aux>;
@@ -57,7 +66,7 @@ class Layout extends Component {
       <Aux>
         <div>
           <Toolbar drawerToggleClicked={this.sideDrawerToggleHandler}/>
-          <SideDrawer open={this.state.showSideDrawer} closed={this.sideDrawerClosedHandler}/>
+          <SideDrawer open={this.state.showSideDrawer} closed={this.sideDrawerClosedHandler} byAuthor={this.clickHandler}/>
         </div>
         <main className={classes.Content}>
           {card}
