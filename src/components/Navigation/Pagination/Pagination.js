@@ -3,8 +3,8 @@ import classes from './Pagination.module.css';
 
 const pagination = props => (
   <div className={classes.Page}>
-    <button>{`< Prev`}</button>
-    <button>{`Next >`}</button>
+    <button onClick={props.prev}>{`< Prev`}</button>
+    <button onClick={props.next}>{`Next >`}</button>
   </div>
   
 );

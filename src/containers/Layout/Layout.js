@@ -11,11 +11,12 @@ class Layout extends Component {
   state = {
     showSideDrawer: false,
     "articles": null,
-    "error": false
+    "error": false,
+    "page": 1
   }
   
   componentDidMount () {
-    axios.get('http://localhost:3001/articles?_page=1$_limit=10')
+    axios.get(`http://localhost:3001/articles?_page=${this.state.page}$_limit=10`)
       .then(response => {
         console.log(response.data);
         this.setState({articles: response.data});
@@ -40,6 +41,37 @@ class Layout extends Component {
         this.setState({articles: response.data});
       })
       .catch(error => {this.setState({error: true})});
+  }
+
+  clickHandlerPageNext = () => {
+    if (this.state.page >= 1 && this.state.articles.length >=10) {
+      let updatedPage = this.state.page;
+      updatedPage++;
+      this.setState({page: updatedPage});
+
+      axios.get(`http://localhost:3001/articles?_page=${updatedPage}$_limit=10`)
+        .then(response => {
+          console.log(response.data);
+          this.setState({articles: response.data});
+        })
+        .catch(error => {this.setState({error: true})});
+    }
+  }
+
+  clickHandlerPagePrev = () => {
+    if (this.state.page !== 1) {
+      let updatedPage = this.state.page;
+      updatedPage--;
+      this.setState({page: updatedPage});
+      console.log(this.state.page);
+      
+      axios.get(`http://localhost:3001/articles?_page=${updatedPage}$_limit=10`)
+        .then(response => {
+          console.log(response.data);
+          this.setState({articles: response.data});
+        })
+        .catch(error => {this.setState({error: true})});
+    }
   }
 
   render () {
@@ -73,7 +105,7 @@ class Layout extends Component {
           {card}
         </main>
         <footer className={classes.Page}>
-          <Pagination />
+          <Pagination next={this.clickHandlerPageNext} prev={this.clickHandlerPagePrev}/>
         </footer>
       </Aux> 
     )
