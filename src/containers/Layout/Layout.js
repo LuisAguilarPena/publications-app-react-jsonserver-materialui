@@ -12,11 +12,12 @@ class Layout extends Component {
     showSideDrawer: false,
     "articles": null,
     "error": false,
-    "page": 1
+    "page": 1,
+    "asc": true
   }
   
   componentDidMount () {
-    axios.get(`http://localhost:3001/articles?_page=${this.state.page}$_limit=10`)
+    axios.get(`http://localhost:3001/articles?_page=${this.state.page}$_limit=10&_sort=date&_order=asc`)
       .then(response => {
         console.log(response.data);
         this.setState({articles: response.data});
@@ -44,12 +45,23 @@ class Layout extends Component {
   }
 
   clickHandlerPageNext = () => {
-    if (this.state.page >= 1 && this.state.articles.length >=10) {
+    if (this.state.page >= 1 && this.state.articles.length >=10 && this.state.asc === true) {
       let updatedPage = this.state.page;
       updatedPage++;
       this.setState({page: updatedPage});
 
-      axios.get(`http://localhost:3001/articles?_page=${updatedPage}$_limit=10`)
+      axios.get(`http://localhost:3001/articles?_page=${updatedPage}$_limit=10&_sort=date&_order=asc`)
+        .then(response => {
+          console.log(response.data);
+          this.setState({articles: response.data});
+        })
+        .catch(error => {this.setState({error: true})});
+    } else if (this.state.page >= 1 && this.state.articles.length >=10 && this.state.asc === false) {
+      let updatedPage = this.state.page;
+      updatedPage++;
+      this.setState({page: updatedPage});
+
+      axios.get(`http://localhost:3001/articles?_page=${updatedPage}$_limit=10&_sort=date&_order=desc`)
         .then(response => {
           console.log(response.data);
           this.setState({articles: response.data});
@@ -59,13 +71,51 @@ class Layout extends Component {
   }
 
   clickHandlerPagePrev = () => {
-    if (this.state.page !== 1) {
+    if (this.state.page !== 1 && this.state.asc === true) {
       let updatedPage = this.state.page;
       updatedPage--;
       this.setState({page: updatedPage});
       console.log(this.state.page);
       
-      axios.get(`http://localhost:3001/articles?_page=${updatedPage}$_limit=10`)
+      axios.get(`http://localhost:3001/articles?_page=${updatedPage}$_limit=10&_sort=date&_order=asc`)
+        .then(response => {
+          console.log(response.data);
+          this.setState({articles: response.data});
+        })
+        .catch(error => {this.setState({error: true})});
+    } else if (this.state.page !== 1 && this.state.asc === false){
+      let updatedPage = this.state.page;
+      updatedPage--;
+      this.setState({page: updatedPage});
+      console.log(this.state.page);
+      
+      axios.get(`http://localhost:3001/articles?_page=${updatedPage}$_limit=10&_sort=date&_order=desc`)
+        .then(response => {
+          console.log(response.data);
+          this.setState({articles: response.data});
+        })
+        .catch(error => {this.setState({error: true})});
+    }
+  }
+
+  clickHandlerSort = () => {
+    if(this.state.asc) {
+      let updatedPage = this.state.page;
+      let updatedAsc = !this.state.asc;
+      this.setState({asc: updatedAsc});
+
+      axios.get(`http://localhost:3001/articles?_page=${updatedPage}$_limit=10&_sort=date&_order=desc`)
+        .then(response => {
+          console.log(response.data);
+          this.setState({articles: response.data});
+        })
+        .catch(error => {this.setState({error: true})});
+    } else {
+      let updatedPage = this.state.page;
+      let updatedAsc = !this.state.asc;
+      this.setState({asc: updatedAsc});
+
+      axios.get(`http://localhost:3001/articles?_page=${updatedPage}$_limit=10&_sort=date&_order=asc`)
         .then(response => {
           console.log(response.data);
           this.setState({articles: response.data});
@@ -98,7 +148,7 @@ class Layout extends Component {
     return (
       <Aux>
         <div>
-          <Toolbar drawerToggleClicked={this.sideDrawerToggleHandler}/>
+          <Toolbar drawerToggleClicked={this.sideDrawerToggleHandler} sort={this.clickHandlerSort}/>
           <SideDrawer open={this.state.showSideDrawer} closed={this.sideDrawerClosedHandler} byAuthor={this.clickHandler}/>
         </div>
         <main className={classes.Content}>
