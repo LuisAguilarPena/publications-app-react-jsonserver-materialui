@@ -13,11 +13,11 @@ class Layout extends Component {
     "articles": null,
     "error": false,
     "page": 1,
-    "asc": true
+    "desc": true
   }
   
   componentDidMount () {
-    axios.get(`http://localhost:3001/articles?_page=${this.state.page}$_limit=10&_sort=date&_order=asc`)
+    axios.get(`http://localhost:3001/articles?_page=${this.state.page}$_limit=10&_sort=date&_order=desc`)
       .then(response => {
         console.log(response.data);
         this.setState({articles: response.data});
@@ -45,23 +45,23 @@ class Layout extends Component {
   }
 
   clickHandlerPageNext = () => {
-    if (this.state.page >= 1 && this.state.articles.length >=10 && this.state.asc === true) {
-      let updatedPage = this.state.page;
-      updatedPage++;
-      this.setState({page: updatedPage});
-
-      axios.get(`http://localhost:3001/articles?_page=${updatedPage}$_limit=10&_sort=date&_order=asc`)
-        .then(response => {
-          console.log(response.data);
-          this.setState({articles: response.data});
-        })
-        .catch(error => {this.setState({error: true})});
-    } else if (this.state.page >= 1 && this.state.articles.length >=10 && this.state.asc === false) {
+    if (this.state.page >= 1 && this.state.articles.length >=10 && this.state.desc === true) {
       let updatedPage = this.state.page;
       updatedPage++;
       this.setState({page: updatedPage});
 
       axios.get(`http://localhost:3001/articles?_page=${updatedPage}$_limit=10&_sort=date&_order=desc`)
+        .then(response => {
+          console.log(response.data);
+          this.setState({articles: response.data});
+        })
+        .catch(error => {this.setState({error: true})});
+    } else if (this.state.page >= 1 && this.state.articles.length >=10 && this.state.desc === false) {
+      let updatedPage = this.state.page;
+      updatedPage++;
+      this.setState({page: updatedPage});
+
+      axios.get(`http://localhost:3001/articles?_page=${updatedPage}$_limit=10&_sort=date&_order=asc`)
         .then(response => {
           console.log(response.data);
           this.setState({articles: response.data});
@@ -71,25 +71,25 @@ class Layout extends Component {
   }
 
   clickHandlerPagePrev = () => {
-    if (this.state.page !== 1 && this.state.asc === true) {
-      let updatedPage = this.state.page;
-      updatedPage--;
-      this.setState({page: updatedPage});
-      console.log(this.state.page);
-      
-      axios.get(`http://localhost:3001/articles?_page=${updatedPage}$_limit=10&_sort=date&_order=asc`)
-        .then(response => {
-          console.log(response.data);
-          this.setState({articles: response.data});
-        })
-        .catch(error => {this.setState({error: true})});
-    } else if (this.state.page !== 1 && this.state.asc === false){
+    if (this.state.page !== 1 && this.state.desc === true) {
       let updatedPage = this.state.page;
       updatedPage--;
       this.setState({page: updatedPage});
       console.log(this.state.page);
       
       axios.get(`http://localhost:3001/articles?_page=${updatedPage}$_limit=10&_sort=date&_order=desc`)
+        .then(response => {
+          console.log(response.data);
+          this.setState({articles: response.data});
+        })
+        .catch(error => {this.setState({error: true})});
+    } else if (this.state.page !== 1 && this.state.desc === false){
+      let updatedPage = this.state.page;
+      updatedPage--;
+      this.setState({page: updatedPage});
+      console.log(this.state.page);
+      
+      axios.get(`http://localhost:3001/articles?_page=${updatedPage}$_limit=10&_sort=date&_order=asc`)
         .then(response => {
           console.log(response.data);
           this.setState({articles: response.data});
@@ -99,12 +99,12 @@ class Layout extends Component {
   }
 
   clickHandlerSort = () => {
-    if(this.state.asc) {
+    if(this.state.desc) {
       let updatedPage = this.state.page;
-      let updatedAsc = !this.state.asc;
-      this.setState({asc: updatedAsc});
+      let updatedAsc = !this.state.desc;
+      this.setState({desc: updatedAsc});
 
-      axios.get(`http://localhost:3001/articles?_page=${updatedPage}$_limit=10&_sort=date&_order=desc`)
+      axios.get(`http://localhost:3001/articles?_page=${updatedPage}$_limit=10&_sort=date&_order=asc`)
         .then(response => {
           console.log(response.data);
           this.setState({articles: response.data});
@@ -112,10 +112,10 @@ class Layout extends Component {
         .catch(error => {this.setState({error: true})});
     } else {
       let updatedPage = this.state.page;
-      let updatedAsc = !this.state.asc;
-      this.setState({asc: updatedAsc});
+      let updatedAsc = !this.state.desc;
+      this.setState({desc: updatedAsc});
 
-      axios.get(`http://localhost:3001/articles?_page=${updatedPage}$_limit=10&_sort=date&_order=asc`)
+      axios.get(`http://localhost:3001/articles?_page=${updatedPage}$_limit=10&_sort=date&_order=desc`)
         .then(response => {
           console.log(response.data);
           this.setState({articles: response.data});
