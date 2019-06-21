@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import Aux from '../../hoc/Aux';
-import Toolbar from '../Navigation/Toolbar/Toolbar';
-import SideDrawer from '../Navigation/SideDrawer/SideDrawer';
+import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
+import SideDrawer from '../../components/Navigation/SideDrawer/SideDrawer';
+import Pagination from '../../components/Navigation/Pagination/Pagination';
 import classes from './Layout.module.css';
 import axios from '../../axiosreq';
-import Card from '../Card/Card';
+import Card from '../../components/Card/Card';
 
 class Layout extends Component {
   state = {
@@ -71,6 +72,9 @@ class Layout extends Component {
         <main className={classes.Content}>
           {card}
         </main>
+        <footer className={classes.Page}>
+          <Pagination />
+        </footer>
       </Aux> 
     )
   }
