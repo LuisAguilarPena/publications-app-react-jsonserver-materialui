@@ -8,10 +8,16 @@
   padding: 10px 0;
   box-sizing: border-box;
   cursor: pointer;
+  transition: 300ms;
 }
 
 .DrawerToggle div {
   width: 90%;
   height: 3px;
   background-color: black;
+}
+
+.DrawerToggle:hover{
+  transform: rotate(90deg);
+  transition: 300ms
 }

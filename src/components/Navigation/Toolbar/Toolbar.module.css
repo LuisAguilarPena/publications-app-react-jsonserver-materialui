@@ -13,3 +13,16 @@
   z-index: 90;
   color: white; 
 }
+.Sort{
+  padding: 5px 10px;
+}
+.Sort a{
+  color: white;
+  text-decoration: none;
+}
+.Sort:hover{
+  transition: 0.6s;
+  background-color: #1769aa;
+  cursor: pointer;
+  
+}
