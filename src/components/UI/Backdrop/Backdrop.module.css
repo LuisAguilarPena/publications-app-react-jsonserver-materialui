@@ -1,7 +1,7 @@
 .Backdrop{
   margin-top: -400px;
   width: 150%;
-  height: 150%;
+  height: 250%;
   position: fixed;
   z-index: 100;
   left: 0;

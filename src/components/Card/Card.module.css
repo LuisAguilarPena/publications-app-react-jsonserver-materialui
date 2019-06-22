@@ -1,7 +1,26 @@
 .Card{
-  margin: 2em 23em;
+  margin: 2em 16em;
   background-color: white;
   border-radius: 5px;
   box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.7);
   padding: 10px;
+}
+
+@media(max-width: 1200px){
+  .Card{
+  margin: 2em 8em;
+  }
+}
+
+@media(max-width: 600px){
+  .Card{
+    margin: 2em 4em;
+    transform: scale(0.9)
+  }
+}
+
+@media(max-width: 450px){
+  .Card{
+    margin: 0em 1em;
+  }
 }
