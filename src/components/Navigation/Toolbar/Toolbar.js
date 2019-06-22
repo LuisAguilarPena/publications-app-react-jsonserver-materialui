@@ -6,7 +6,7 @@ const toolbar = props => (
   <header className={classes.Toolbar}>
    <DrawerToggle clicked={props.drawerToggleClicked}/>
     <div className={classes.Sort} > <a href='/' >Publications App</a></div>
-    <div className={classes.Sort} onClick={props.sort}>Sort</div>
+    <div className={classes.Sort} onClick={props.sort}>Sort by date</div>
   </header>
 );
 
