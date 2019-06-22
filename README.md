@@ -1,3 +1,189 @@
+# Publications App
+
+This is a small React app that interacts with a mock API managed by json-server and that highly resembles Material UI with only vanilla CSS.
+
+## Key technologies you must use:
+
+● Angular - https://angular.io/guide/quickstart
+● Json-server - https://www.npmjs.com/package/json-server
+● Material-UI (Optional) - https://material.angular.io/
+
+The application will initially display a list of publications sorted by date in descending order.
+
+Each publication must have a title, a description and a date. In turn, publications will be associated to an author, who will have a first name, last name and email address. The author’s information must be displayed as part of the publication.
+
+The list of publications must be paginated, limiting the number of entries to a maximum of 10 at a time.
+
+The user should be able to invert the order of publications showing the oldest ones first.
+
+All the authors should be listed in a sidebar, and the user should be able to click on one of them to see a list of their publications.
+
+Anything that is not specified here is up to your criteria, taking into account all the points mentioned above.
+
+Include a README.md file with instructions on how to build and run your code locally. 
+
+Please make sure that you include the sample data that will be served by json-server.
+
+## How to run project locally
+
+1. Clone repo into your local machine
+
+`
+$ git clone https://github.com/LuisAguilarPena/publications-app-react-jsonserver-materialui.git
+`
+
+2. Move to folder
+
+`
+$ cd publications-app-react-jsonserver-materialui
+`
+
+3. Install dependencies
+
+`
+$ npm install
+`
+
+4. Watch fake database with Json-server on localhost:3001
+
+`
+$ json-server --watch db.json --port 3001
+`
+
+5. In a new terminal tab start application in localhost:3000
+
+`
+$ npm start
+`
+
+## Sample data
+
+```JSON
+{
+"articles": [
+{
+"id": "1",
+"tittle": "On the Nature of Molecular Forces",
+"description": "Physics",
+"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam. Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit. Vivamus varius pretium ligula, a aliquam odio euismod sit amet. Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra. Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.",
+"date": "2019-05-25",
+"authorId": "1",
+"author": "Albert Einstein"
+},
+{
+"id": "2",
+"tittle": "The Teory of General Relativity",
+"description": "Physics",
+"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam. Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit. Vivamus varius pretium ligula, a aliquam odio euismod sit amet. Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra. Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.",
+"date": "2019-06-18",
+"authorId": "1",
+"author": "Albert Einstein"
+},
+{
+"id": "3",
+"tittle": "Doctoral dissertation on the fundamental theorem of algebra",
+"description": "Mathematics",
+"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam. Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit. Vivamus varius pretium ligula, a aliquam odio euismod sit amet. Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra. Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.",
+"date": "2019-06-18",
+"authorId": "2",
+"author": "Johann Gauss"
+},
+{
+"id": "4",
+"tittle": "Disquisitiones Arithmeticae",
+"description": "Mathematics",
+"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam. Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit. Vivamus varius pretium ligula, a aliquam odio euismod sit amet. Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra. Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.",
+"date": "2019-06-18",
+"authorId": "2",
+"author": "Johann Gauss"
+},
+{
+"id": "5",
+"tittle": "Theory of the Brownian Movement",
+"description": "Physics",
+"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam. Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit. Vivamus varius pretium ligula, a aliquam odio euismod sit amet. Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra. Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.",
+"date": "2019-06-19",
+"authorId": "1",
+"author": "Albert Einstein"
+},
+{
+"id": "6",
+"tittle": "Description of the First Computer",
+"description": "Mathematics",
+"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam. Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit. Vivamus varius pretium ligula, a aliquam odio euismod sit amet. Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra. Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.",
+"date": "2019-06-19",
+"authorId": "3",
+"author": "Ada Lovelace"
+},
+{
+"id": "7",
+"tittle": "Sketch of the Analytical Engine",
+"description": "Mathematics",
+"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam. Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit. Vivamus varius pretium ligula, a aliquam odio euismod sit amet. Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra. Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.",
+"date": "2019-06-19",
+"authorId": "3",
+"author": "Ada Lovelace"
+},
+{
+"id": "8",
+"tittle": "General Investigations of Curved Surfaces",
+"description": "Mathematics",
+"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam. Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit. Vivamus varius pretium ligula, a aliquam odio euismod sit amet. Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra. Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.",
+"date": "2019-06-19",
+"authorId": "2",
+"author": "Johann Gauss"
+},
+{
+"id": "9",
+"tittle": "Geomagnetism",
+"description": "Mathematics",
+"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam. Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit. Vivamus varius pretium ligula, a aliquam odio euismod sit amet. Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra. Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.",
+"date": "2019-06-20",
+"authorId": "2",
+"author": "Johann Gauss"
+},
+{
+"id": "10",
+"tittle": "Non Euclidean Geometry",
+"description": "Mathematics",
+"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam. Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit. Vivamus varius pretium ligula, a aliquam odio euismod sit amet. Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra. Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.",
+"date": "2019-06-20",
+"authorId": "2",
+"author": "Johann Gauss"
+},
+{
+"id": "11",
+"tittle": "A Calculus of the Nervous System",
+"description": "Mathematics",
+"body": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quam velit, vulputate eu pharetra nec, mattis ac neque. Duis vulputate commodo lectus, ac blandit elit tincidunt id. Sed rhoncus, tortor sed eleifend tristique, tortor mauris molestie elit, et lacinia ipsum quam nec dui. Quisque nec mauris sit amet elit iaculis pretium sit amet quis magna. Aenean velit odio, elementum in tempus ut, vehicula eu diam. Pellentesque rhoncus aliquam mattis. Ut vulputate eros sed felis sodales nec vulputate justo hendrerit. Vivamus varius pretium ligula, a aliquam odio euismod sit amet. Quisque laoreet sem sit amet orci ullamcorper at ultricies metus viverra. Pellentesque arcu mauris, malesuada quis ornare accumsan, blandit sed diam.",
+"date": "2019-06-20",
+"authorId": "3",
+"author": "Ada Lovelace"
+}
+],
+"authors": [
+{
+"id": "1",
+"firstName": "Albert",
+"lastName": "Einstein",
+"email": "albert@gmail.com"
+},
+{
+"id": "2",
+"firstName": "Johann",
+"lastName": "Gauss",
+"email": "gauss@gmail.com"
+},
+{
+"id": "3",
+"firstName": "Ada",
+"lastName": "Lovelace",
+"email": "ada@gmail.com"
+}
+]
+}
+```
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
