@@ -4,7 +4,7 @@ This is a small React app that interacts with a mock API managed by json-server 
 
 ## Key technologies you must use:
 
-● Angular - https://angular.io/guide/quickstart
+● React - 
 
 ● Json-server - https://www.npmjs.com/package/json-server
 
